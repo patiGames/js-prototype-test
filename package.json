@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/index.js",
-    "test": "mocha --require @babel/register 'test/**/**spec.js'"
+    "test": "mocha --require @babel/register 'test/**/**spec.js'",
+    "test:watch": "mocha --require @babel/register 'test/**/**spec.js' --watch"
   },
   "keywords": [],
   "author": "",
