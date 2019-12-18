@@ -63,3 +63,28 @@ describe('indexOf single characters', () => {
   });
 
 });
+
+describe('indexOf words', () => {
+
+  let stringToSearch;
+
+  beforeEach(() => {
+    stringToSearch = 'adeu fins demà josep';
+  });
+
+  it('should be -1 when searchValue character does not exist', () => {
+    let substringToSearch = 'adei';
+    expect(stringToSearch.indexOf(substringToSearch)).to.eql(-1);
+  });
+
+  it('should be 5 when searchValue substring starts at 5', () => {
+    let substringToSearch = 'fins';
+    expect(stringToSearch.indexOf(substringToSearch)).to.eql(5);
+  });
+
+  it('should be -1 when searchValue substring starts at 5 and fromIndex is 6', () => {
+    let substringToSearch = 'fins';
+    expect(stringToSearch.indexOf(substringToSearch, 6)).to.eql(-1);
+  });
+
+});
