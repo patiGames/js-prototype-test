@@ -1,7 +1,7 @@
 import {
   expect
 } from 'chai';
-import '../src/index';
+import '../src/indexOf';
 
 describe('indexOf edge cases', () => {
 

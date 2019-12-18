@@ -1,20 +1,17 @@
 'use strict';
 
-String.prototype.indexOf = function(searchValue, fromIndex = 0) {
+String.prototype.indexOf = function (searchValue, fromIndex = 0) {
   if (typeof searchValue === 'undefined') return -1;
   if (searchValue === null) return -1;
   if (searchValue === '') return emptySearchValue(this, fromIndex);
 
-  let j, len2, checkSubstring;
+  let j, len2;
   for (let i = fromIndex, len = this.length; i < len; i++) {
-    if (this.charAt(i) === searchValue.charAt(0)) {
-      checkSubstring = true;
+    if (this[i] === searchValue[0]) {
       for (j = 1, len2 = searchValue.length; j < len2; j++) {
-        if (checkSubstring && this.charAt(i + j) !== searchValue.charAt(j)) {
-          checkSubstring = false;
-        }
+        if (this[i + j] !== searchValue[j]) break;
       }
-      if (checkSubstring) return i;
+      if (j === searchValue.length) return i;
     }
   }
   return -1;
@@ -22,6 +19,6 @@ String.prototype.indexOf = function(searchValue, fromIndex = 0) {
 
 function emptySearchValue(word, fromIndex) {
   if (fromIndex <= 0) return 0;
-  if (word.charAt(fromIndex) === '') return word.length % fromIndex;
+  if (word.length <= fromIndex) return word.length % fromIndex;
   return fromIndex;
 }
